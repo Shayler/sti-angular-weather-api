@@ -1,3 +1,11 @@
-<p>
-  weather-search works!
-</p>
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div class="search-container">
+    <input type="text" name="searchCity" class="search-input" id="searchCity" formControlName="searchCity" placeholder="Type city name" />
+    <button type="submit">Search Locations</button>
+  </div>
+  <ul class="search-results">
+    <li *ngFor="let item of searchResults$ | async" class="search-results-item">
+      {{item.name}}, {{item.sys.country}}
+    </li>
+  </ul>
+</form>

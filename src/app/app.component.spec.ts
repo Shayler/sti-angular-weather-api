@@ -22,12 +22,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sti-angular-weather-api'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sti-angular-weather-api');
-  });
-
   it('should render WeatherSearchComponent', () => {
     const fixture = TestBed.createComponent(WeatherSearchComponent);
     fixture.detectChanges();
