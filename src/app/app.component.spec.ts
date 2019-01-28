@@ -1,11 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { WeatherSearchComponent } from './weather/weather-search/weather-search.component';
+import { WeatherRecentListComponent } from './weather/weather-recent-list/weather-recent-list.component';
+import { WeatherForecastComponent } from './weather/weather-forecast/weather-forecast.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        WeatherSearchComponent,
+        WeatherRecentListComponent,
+        WeatherForecastComponent
       ],
     }).compileComponents();
   }));
@@ -22,10 +28,24 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('sti-angular-weather-api');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should render WeatherSearchComponent', () => {
+    const fixture = TestBed.createComponent(WeatherSearchComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to sti-angular-weather-api!');
+    const compiled = fixture.debugElement.componentInstance;
+    expect(compiled).toBeTruthy();
+  });
+
+  it('should render WeatherRecentListComponent', () => {
+    const fixture = TestBed.createComponent(WeatherRecentListComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.componentInstance;
+    expect(compiled).toBeTruthy();
+  });
+
+  it('should render WeatherForecastComponent', () => {
+    const fixture = TestBed.createComponent(WeatherForecastComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.componentInstance;
+    expect(compiled).toBeTruthy();
   });
 });
