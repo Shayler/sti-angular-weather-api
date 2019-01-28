@@ -3,10 +3,50 @@
     flex-direction: row;
 
     .search-input {
-        flex-grow:1;
-        border:none;
-        border-bottom:1px solid black;
+        flex-grow: 1;
+        border: none;
+        border-bottom: 1px solid black;
         padding: 8px;
-        margin-right:12px;
+        margin-right: 12px;
+    }
+
+    .item-action {
+        margin: auto;
+        cursor: pointer;
+    }
+}
+
+.search-results {
+    position: absolute;
+    width: 20%;
+    background-color: white;
+    border: 1px solid lightgrey;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    display: none;
+
+    &.open {
+        display: inline;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .search-notice {
+        font-size:0.8em;
+        padding: 8px;
+        color: red;
+        cursor: pointer;
+    }
+
+    .search-results-item {
+        padding: 8px;
+        width: 100%;
+        cursor: pointer;
+
+        &:hover {
+            background-color:lightgrey;
+        }
     }
 }

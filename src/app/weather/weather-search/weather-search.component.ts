@@ -16,6 +16,7 @@ import { LoadWeather } from '../store/weather.actions';
 })
 export class WeatherSearchComponent implements OnInit {
   searchForm: FormGroup;
+  searchOpen: Boolean = false;
   searchResults$: Observable<CitySearchResult[]>;
 
   constructor(
@@ -32,13 +33,19 @@ export class WeatherSearchComponent implements OnInit {
 
   onSubmit() {
     if (this.searchForm.value.searchCity.length !== 0) {
+      this.searchOpen = true;
       this.searchResults$ = this.weatherService.searchCity(this.searchForm.value.searchCity).pipe(
         tap(searchResults => searchResults)
       );
     }
   }
 
+  close() {
+    this.searchOpen = false;
+  }
+
   addCity(cityId: string) {
+    this.searchOpen = false;
     this.store.dispatch(new LoadWeather({ cityId }));
   }
 }
