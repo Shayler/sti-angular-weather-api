@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { CitySearchResult } from './weather.model';
+import { CitySearchResult, ForecastResponse } from './weather.model';
 
 @Injectable()
 export class WeatherService {
@@ -25,5 +25,14 @@ export class WeatherService {
     };
     return this.http.get<CitySearchResult[]>(this.url + 'find', { params }).pipe(
       map(results => results['list']));
+  }
+
+  loadWeather(cityId: string) {
+    const params: { [key: string]: string } = {
+      ...this.params,
+      id: cityId
+    };
+    return this.http.get<ForecastResponse>(this.url + 'forecast/daily', { params }).pipe(
+      map(res => res));
   }
 }

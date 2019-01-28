@@ -1,0 +1,39 @@
+.recent-header {
+    border-bottom: 2px solid black;
+    padding: 4px 8px;
+    margin-top: 12px;
+}
+
+.recent-list {
+    .recent-item {
+        cursor: pointer;
+        display: flex;
+        border-bottom: 1px solid black;
+        padding: 0px 8px;
+        justify-content: space-between;
+
+        .recent-item-details {
+            line-height: 32px;
+            margin: 8px 0px;
+            display: flex;
+            flex-direction:row;
+            flex-grow:1;
+    
+            .item-weather {
+                margin-left:32px;
+            }
+        }
+
+        .recent-item-actions {
+            display: flex;
+            
+            .item-action {
+                margin: auto 8px;
+
+                &:last-of-type {
+                    margin-right:0px;
+                }
+            }
+        }
+    }
+}

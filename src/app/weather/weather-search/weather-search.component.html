@@ -4,8 +4,7 @@
     <button type="submit">Search Locations</button>
   </div>
   <ul class="search-results">
-    <li *ngFor="let item of searchResults$ | async" class="search-results-item">
-      {{item.name}}, {{item.sys.country}}
-    </li>
+    <li *ngFor="let item of searchResults$ | async" class="search-results-item" (click)="addCity(item.id)">{{item.name}},
+      {{item.sys.country}}</li>
   </ul>
 </form>

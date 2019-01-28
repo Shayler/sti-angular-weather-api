@@ -1,8 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { WeatherSearchComponent } from './weather/weather-search/weather-search.component';
 import { WeatherRecentListComponent } from './weather/weather-recent-list/weather-recent-list.component';
 import { WeatherForecastComponent } from './weather/weather-forecast/weather-forecast.component';
+import { WeatherService } from './weather/shared/weather.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,6 +16,8 @@ describe('AppComponent', () => {
         WeatherRecentListComponent,
         WeatherForecastComponent
       ],
+      imports: [ReactiveFormsModule],
+      providers:[WeatherService]
     }).compileComponents();
   }));
 

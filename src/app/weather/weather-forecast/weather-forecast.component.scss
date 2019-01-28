@@ -1,0 +1,46 @@
+.forecast-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:32px;
+
+    .forecast-title {
+        font-size:1.6em;
+    }
+
+    .item-action {
+        cursor: pointer;
+    }
+}
+
+.forecast-detail {
+    display: flex;
+    flex-direction: row;
+
+    .weather-icon {
+        margin-right:32px;
+    }
+
+    .forecast-detail-summary {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.forecast-daily {
+    margin:48px 0px 12px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .forecast-day {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin:auto;
+
+        .weather-icon {
+            margin:auto;
+        }
+    }
+}

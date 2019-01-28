@@ -1,0 +1,24 @@
+:host {
+    height: 100vh;
+    overflow-x: hidden;
+
+    .panel {
+        border: 1px solid lightgrey;
+        padding: 12px;
+        margin: 12px;
+        background-color: white;
+        border-radius: 4px;
+        -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+        -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+        box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+
+        &.panel-left {
+            width: 30%;
+        }
+
+        &.panel-right {
+            width: 70%;
+            margin-left: 0px;
+        }
+    }
+}

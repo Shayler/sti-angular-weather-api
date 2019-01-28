@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 import { WeatherService } from '../shared/weather.service';
 import { CitySearchResult } from '../shared/weather.model';
+import { WeatherState } from '../store/weather.reducer';
+import { LoadWeather } from '../store/weather.actions';
 
 @Component({
   selector: 'app-weather-search',
@@ -17,7 +20,8 @@ export class WeatherSearchComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private weatherService: WeatherService
+    private weatherService: WeatherService,
+    private store: Store<WeatherState>
   ) { }
 
   ngOnInit() {
@@ -32,5 +36,9 @@ export class WeatherSearchComponent implements OnInit {
         tap(searchResults => searchResults)
       );
     }
+  }
+
+  addCity(cityId: string) {
+    this.store.dispatch(new LoadWeather({ cityId }));
   }
 }

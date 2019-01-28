@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { ForecastResponse } from '../shared/weather.model';
+import { WeatherState } from '../store/weather.reducer';
+import { getRecentForecasts } from 'src/app/reducers';
+
 
 @Component({
   selector: 'app-weather-recent-list',
@@ -7,9 +14,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherRecentListComponent implements OnInit {
 
-  constructor() { }
+  recentForecasts$: Observable<ForecastResponse[]>;
+
+  @Output() public onSelect: EventEmitter<ForecastResponse> = new EventEmitter();
+
+  constructor(private store: Store<WeatherState>) { }
 
   ngOnInit() {
-  }
 
+    this.recentForecasts$ = this.store.pipe(select(getRecentForecasts));
+  }
 }
