@@ -12,8 +12,24 @@ export const initialWeatherState: WeatherState = {
 };
 
 export function addForecast(forecastList: ForecastResponse[], newForecast: ForecastResponse): ForecastResponse[] {
-    let forecasts = [newForecast, ...forecastList];
+    let forecasts = (findForecastById(forecastList, newForecast.city.id) !== -1) ? updateForecast(forecastList, newForecast) : [newForecast, ...forecastList];
     return (forecastList.length >= 8) ? forecasts.slice(0, 8) : forecasts;
+}
+
+export function updateForecast(forecastList: ForecastResponse[], newForecast: ForecastResponse): ForecastResponse[] {
+    forecastList[findForecastById(forecastList, newForecast.city.id)] = newForecast;
+    let forecasts = forecastList;
+    return forecasts;
+}
+
+export function findForecastById(forecastList: ForecastResponse[], id: string): number {
+    return forecastList.findIndex(x => x.city.id === id);
+}
+
+export function removeForecast(forecastList: ForecastResponse[], id: string): ForecastResponse[] {
+    forecastList.splice(findForecastById(forecastList, id), 1);
+    let forecasts = forecastList;
+    return forecasts;
 }
 
 export function weatherReducer(state = initialWeatherState, action: WeatherActions): WeatherState {
@@ -27,6 +43,12 @@ export function weatherReducer(state = initialWeatherState, action: WeatherActio
             return {
                 ...state,
                 forecasts: addForecast(state.forecasts, action.payload.forecast)
+            };
+
+        case WeatherActionTypes.RemoveWeather:
+            return {
+                ...state,
+                forecasts: removeForecast(state.forecasts, action.payload.cityId)
             };
 
         default:

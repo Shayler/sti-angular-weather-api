@@ -20,6 +20,30 @@ ul {
     padding-inline-start: 0px;
 }
 
+.item-action {
+    width: 24px;
+    height: 24px;
+    color: black;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &:hover {
+        color: blue;
+    }
+
+    &.refresh {
+        background-image: url(assets/svg/sync.svg);
+    }
+
+    &.add {
+        background-image: url(assets/svg/plus.svg);
+    }
+
+    &.remove {
+        background-image: url(assets/svg/times.svg);
+    }
+}
+
 .weather-icon {
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,6 +53,15 @@ ul {
         height: 32px;
     }
 
+    &.medium {
+        width: 64px;
+        height: 64px;
+    }
+
+    &.large {
+        width: 128px;
+        height: 128px;    
+    }
     &.clear {
         background-image: url(assets/svg/day.svg);
     }

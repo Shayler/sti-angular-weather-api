@@ -33,7 +33,8 @@ import { TempCelciusPipe } from './shared/temp-celsius.pipe';
     EffectsModule.forRoot([WeatherEffects])
   ],
   providers: [WeatherService],
-  bootstrap: [AppComponent],
-  exports: [TempCelciusPipe]
+  exports: [TempCelciusPipe],
+  bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 <div class="panel panel-left">
   <app-weather-search></app-weather-search>
-  <app-weather-recent-list></app-weather-recent-list>
+  <app-weather-recent-list (onSelect)="selectedForecast($event)"></app-weather-recent-list>
 </div>
-<app-weather-forecast class="panel panel-right"></app-weather-forecast>
+<app-weather-forecast class="panel panel-right" [forecast]="currForecast"></app-weather-forecast>

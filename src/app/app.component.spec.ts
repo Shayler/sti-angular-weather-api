@@ -7,6 +7,7 @@ import { WeatherSearchComponent } from './weather/weather-search/weather-search.
 import { WeatherRecentListComponent } from './weather/weather-recent-list/weather-recent-list.component';
 import { WeatherForecastComponent } from './weather/weather-forecast/weather-forecast.component';
 import { WeatherService } from './weather/shared/weather.service';
+import { TempCelciusPipe } from './shared/temp-celsius.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,12 +16,13 @@ describe('AppComponent', () => {
         AppComponent,
         WeatherSearchComponent,
         WeatherRecentListComponent,
-        WeatherForecastComponent
+        WeatherForecastComponent,
+        TempCelciusPipe
       ],
       imports: [
         ReactiveFormsModule,
         StoreModule.forRoot({})],
-      providers: [WeatherService]
+      providers: [WeatherService],
     }).compileComponents();
   }));
 

@@ -1,3 +1,30 @@
-<div class="forecast-header" *ngIf="forecast">
-
+<div class="forecast-header" *ngIf=forecast>
+  <div class="forecast-title">{{forecast?.city.name}}, {{forecast?.city.country}}</div>
+  <div class="forecast-refresh item-action refresh" title="Refresh Location" (click)="updateCity(forecast?.city.id)">
+  </div>
+</div>
+<div class="forecast-detail" *ngIf=forecast>
+  <div class="weather-icon large" ngClass="{{forecast?.list[0].weather[0].main.toLowerCase()}}"></div>
+  <div class="forecast-detail-summary">
+    <div>
+      {{forecast?.list[0].temp.day | tempCelcius}}
+    </div>
+    <div>
+      {{forecast?.list[0].weather[0].description}}
+    </div>
+    <div>
+      Wind: {{forecast?.list[0].speed}} ms {{forecast?.list[0].deg}} deg
+    </div>
+    <div>
+      Pressure: {{forecast?.list[0].pressure}}
+    </div>
+  </div>
+</div>
+<div class="forecast-daily" *ngIf=forecast>
+  <div class="forecast-day" *ngFor="let day of forecast?.list">
+    <div>{{day?.temp.min | tempCelcius}}</div>
+    <div>{{day?.dt * 1000 | date:'EEEE'}}</div>
+    <div class="weather-icon medium" ngClass="{{day?.weather[0].main.toLowerCase()}}"></div>
+    <div>{{day?.temp.max | tempCelcius}}</div>
+  </div>
 </div>

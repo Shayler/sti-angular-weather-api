@@ -9,10 +9,12 @@ describe('WeatherRecentListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherRecentListComponent ],
-      providers: [TempCelciusPipe]
+      declarations: [
+        WeatherRecentListComponent,
+        TempCelciusPipe 
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

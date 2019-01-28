@@ -8,26 +8,26 @@ import { WeatherService } from '../shared/weather.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('WeatherEffects', () => {
-  let actions$: Observable<any>;
-  let effects: WeatherEffects;
+    let actions$: Observable<any>;
+    let effects: WeatherEffects;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot({})],
-      providers: [
-        WeatherEffects,
-        WeatherService,
-        HttpClient,
-        HttpHandler,
-        Store,
-        provideMockActions(() => actions$)
-      ]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [StoreModule.forRoot({})],
+            providers: [
+                WeatherEffects,
+                WeatherService,
+                HttpClient,
+                HttpHandler,
+                Store,
+                provideMockActions(() => actions$)
+            ]
+        });
+
+        effects = TestBed.get(WeatherEffects);
     });
 
-    effects = TestBed.get(WeatherEffects);
-  });
-
-  it('should be created', () => {
-    expect(effects).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(effects).toBeTruthy();
+    });
 });

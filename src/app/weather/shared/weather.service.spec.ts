@@ -1,11 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 
 import { WeatherService } from './weather.service';
 
 describe('WeatherService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    providers: [WeatherService, HttpClient, HttpHandler]
+    providers: [
+      WeatherService,
+      HttpClient,
+      HttpHandler
+    ],
+    imports: [ HttpClientModule ]
   }));
 
   it('should be created', () => {

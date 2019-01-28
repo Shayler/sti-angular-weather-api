@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ForecastResponse } from '../shared/weather.model';
 import { WeatherState } from '../store/weather.reducer';
 import { getRecentForecasts } from 'src/app/reducers';
-
+import { RemoveWeather, LoadWeather } from '../store/weather.actions';
 
 @Component({
   selector: 'app-weather-recent-list',
@@ -23,5 +23,17 @@ export class WeatherRecentListComponent implements OnInit {
   ngOnInit() {
 
     this.recentForecasts$ = this.store.pipe(select(getRecentForecasts));
+  }
+
+  selectForecast(forecast: ForecastResponse) {
+    this.onSelect.emit(forecast);
+  }
+
+  removeCity(cityId: string) {
+    this.store.dispatch(new RemoveWeather({ cityId }));
+  }
+
+  updateCity(cityId: string) {
+    this.store.dispatch(new LoadWeather({ cityId }));
   }
 }

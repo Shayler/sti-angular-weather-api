@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { LoadWeather } from '../store/weather.actions';
+import { ForecastResponse } from '../shared/weather.model';
+import { WeatherState } from '../store/weather.reducer';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherForecastComponent implements OnInit {
 
-  constructor() { }
+  @Input() forecast: ForecastResponse;
+
+  constructor(private store: Store<WeatherState>) { }
 
   ngOnInit() {
   }
 
+  updateCity(cityId: string) {
+    this.store.dispatch(new LoadWeather({cityId}));
+  }
 }

@@ -1,9 +1,14 @@
 <div class="recent-header">Recent Locations</div>
 <ul class="recent-list">
   <li class="recent-item" *ngFor="let forecast of recentForecasts$ | async">
-    <div class="recent-item-details"><span class="item-location">{{forecast.city.name}}, {{forecast.city.country}}</span>
+    <div class="recent-item-details" (click)="selectForecast(forecast)"><span class="item-location">{{forecast.city.name}},
+        {{forecast.city.country}}</span>
       <span class="item-weather">{{forecast.list[0].temp.day | tempCelcius}} {{forecast.list[0].weather[0].main}}</span>
       <div class="weather-icon small" ngClass="{{forecast.list[0].weather[0].main.toLowerCase()}}"></div>
+    </div>
+    <div class="recent-item-actions">
+      <div class="item-action refresh" (click)="updateCity(forecast.city.id)" title="Refresh Location"></div>
+      <div class="item-action remove" (click)="removeCity(forecast.city.id)" title="Remove Location"></div>
     </div>
   </li>
 </ul>
