@@ -11,7 +11,7 @@ describe('WeatherRecentListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         WeatherRecentListComponent,
-        TempCelciusPipe 
+        TempCelciusPipe
       ]
     })
       .compileComponents();

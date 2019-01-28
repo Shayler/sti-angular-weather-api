@@ -12,11 +12,15 @@
         padding: 0px 8px;
         justify-content: space-between;
 
+        &:hover {
+            background-color: lightgrey;
+        }
+
         .recent-item-details {
             line-height: 32px;
             margin: 8px 0px;
             display: flex;
-            flex-direction:row;
+            flex-direction: row;
             flex-grow:1;
     
             .item-weather {

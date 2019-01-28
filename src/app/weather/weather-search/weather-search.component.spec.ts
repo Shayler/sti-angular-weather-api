@@ -11,13 +11,13 @@ describe('WeatherSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherSearchComponent ],
+      declarations: [WeatherSearchComponent],
       providers: [
         WeatherService, TempCelciusPipe
       ],
-      imports:[ReactiveFormsModule]
+      imports: [ReactiveFormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

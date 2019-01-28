@@ -12,13 +12,13 @@ export const initialWeatherState: WeatherState = {
 };
 
 export function addForecast(forecastList: ForecastResponse[], newForecast: ForecastResponse): ForecastResponse[] {
-    let forecasts = (findForecastById(forecastList, newForecast.city.id) !== -1) ? updateForecast(forecastList, newForecast) : [newForecast, ...forecastList];
+    const forecasts = (findForecastById(forecastList, newForecast.city.id) !== -1) ? updateForecast(forecastList, newForecast) : [newForecast, ...forecastList];
     return (forecastList.length >= 8) ? forecasts.slice(0, 8) : forecasts;
 }
 
 export function updateForecast(forecastList: ForecastResponse[], newForecast: ForecastResponse): ForecastResponse[] {
     forecastList[findForecastById(forecastList, newForecast.city.id)] = newForecast;
-    let forecasts = forecastList;
+    const forecasts = forecastList;
     return forecasts;
 }
 
@@ -28,7 +28,7 @@ export function findForecastById(forecastList: ForecastResponse[], id: string): 
 
 export function removeForecast(forecastList: ForecastResponse[], id: string): ForecastResponse[] {
     forecastList.splice(findForecastById(forecastList, id), 1);
-    let forecasts = forecastList;
+    const forecasts = forecastList;
     return forecasts;
 }
 

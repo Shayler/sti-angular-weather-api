@@ -30,7 +30,8 @@ export class WeatherService {
   loadWeather(cityId: string) {
     const params: { [key: string]: string } = {
       ...this.params,
-      id: cityId
+      id: cityId,
+      cnt: '5'
     };
     return this.http.get<ForecastResponse>(this.url + 'forecast/daily', { params }).pipe(
       map(res => res));

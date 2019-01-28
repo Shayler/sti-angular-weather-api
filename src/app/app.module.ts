@@ -35,6 +35,5 @@ import { TempCelciusPipe } from './shared/temp-celsius.pipe';
   providers: [WeatherService],
   exports: [TempCelciusPipe],
   bootstrap: [AppComponent]
-  
 })
 export class AppModule { }

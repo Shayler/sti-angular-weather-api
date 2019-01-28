@@ -20,10 +20,10 @@ describe('WeatherForecastComponent', () => {
       ],
       declarations: [
         WeatherForecastComponent,
-        TempCelciusPipe 
+        TempCelciusPipe
       ]
     });
-  
+
     store = TestBed.get(Store);
 
     spyOn(store, 'dispatch').and.callThrough();

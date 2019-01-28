@@ -11,7 +11,7 @@ import { WeatherService } from '../shared/weather.service';
 
 @Injectable()
 export class WeatherEffects {
-    
+
     // Effect for retrieving a city forecast based on provided city Id
     @Effect()
     loadWeather$ = this.actions$
