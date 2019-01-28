@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherRecentListComponent } from './weather-recent-list.component';
+import { TempCelciusPipe } from 'src/app/shared/temp-celsius.pipe';
 
 describe('WeatherRecentListComponent', () => {
   let component: WeatherRecentListComponent;
@@ -8,7 +9,8 @@ describe('WeatherRecentListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherRecentListComponent ]
+      declarations: [ WeatherRecentListComponent ],
+      providers: [TempCelciusPipe]
     })
     .compileComponents();
   }));

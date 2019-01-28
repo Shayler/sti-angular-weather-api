@@ -2,7 +2,7 @@
 <ul class="recent-list">
   <li class="recent-item" *ngFor="let forecast of recentForecasts$ | async">
     <div class="recent-item-details"><span class="item-location">{{forecast.city.name}}, {{forecast.city.country}}</span>
-      <span class="item-weather">{{forecast.list[0].temp.day}} {{forecast.list[0].weather[0].main}}</span>
+      <span class="item-weather">{{forecast.list[0].temp.day | tempCelcius}} {{forecast.list[0].weather[0].main}}</span>
       <div class="weather-icon small" ngClass="{{forecast.list[0].weather[0].main.toLowerCase()}}"></div>
     </div>
   </li>

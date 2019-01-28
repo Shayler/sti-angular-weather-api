@@ -14,13 +14,15 @@ import { WeatherSearchComponent } from './weather/weather-search/weather-search.
 import { WeatherService } from './weather/shared/weather.service';
 import { WeatherEffects } from './weather/store/weather.effects';
 import { reducers, metaReducers } from './reducers';
+import { TempCelciusPipe } from './shared/temp-celsius.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherForecastComponent,
     WeatherRecentListComponent,
-    WeatherSearchComponent
+    WeatherSearchComponent,
+    TempCelciusPipe
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { reducers, metaReducers } from './reducers';
     EffectsModule.forRoot([WeatherEffects])
   ],
   providers: [WeatherService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [TempCelciusPipe]
 })
 export class AppModule { }
